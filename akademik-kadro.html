@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kaman Uygulamalı Bilimler Yüksekokulu Yönetim Bilişim Sistemleri Bölümü akademik kadrosu.">
+    <title>Akademik Kadro | KamanUBYO 2026</title>
+    <style>
+        /* Genel Ayarlar ve Arka Plan Okul Resmi */
+        body { 
+            background: linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.95)), url('okul-bina.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white; 
+            font-family: 'Segoe UI', sans-serif; 
+            margin: 0; 
+            min-height: 100vh;
+        }
+        
+        /* Navbar Tasarımı */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 0 30px;
+            height: 80px;
+            border-bottom: 3px solid #ff00ff; 
+            box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+            letter-spacing: 2px;
+            text-transform: lowercase;
+        }
+
+        .nav-links { display: flex; list-style: none; margin: 0; padding: 0; }
+        .nav-links li a {
+            color: #eee;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+        .nav-links li a:hover, .nav-links li a.active {
+            color: #00f2ff;
+            text-shadow: 0 0 10px #00f2ff;
+        }
+
+        /* Sayfa Başlığı */
+        .page-title {
+            text-align: center;
+            color: #ff00ff;
+            text-shadow: 0 0 15px #ff00ff;
+            font-size: 2.5rem;
+            margin-top: 40px;
+            font-weight: bold;
+        }
+
+        /* Arama Kutusu Fütüristik Stil */
+        .search-container {
+            max-width: 500px;
+            margin: 20px auto 40px;
+            position: relative;
+        }
+        .search-container input[type="text"] {
+            width: 100%;
+            padding: 14px 20px 14px 45px;
+            border-radius: 30px;
+            border: 2px solid #00f2ff;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            outline: none;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+            font-size: 1rem;
+        }
+        .search-container::before {
+            content: "🔍";
+            position: absolute;
+            left: 18px;
+            top: 15px;
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Görseldeki Yeni Grid ve Kart Yapısı */
+        .grid-layout { 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: auto;
+            padding: 0 20px 60px;
+        }
+
+        .hoca-link { text-decoration: none; color: inherit; display: block; }
+
+        .akademik-kart {
+            background: rgba(10, 10, 10, 0.9); 
+            border: 2px solid #00f2ff; 
+            border-radius: 12px; 
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-height: 140px;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(5px);
+        }
+        
+        .hoca-link:hover .akademik-kart { 
+            border-color: #ff00ff; 
+            transform: translateY(-5px); 
+            box-shadow: 0 0 25px rgba(255, 0, 255, 0.5); 
+        }
+
+        /* Hoca Fotoğraf Alanı */
+        .hoca-img {
+            width: 85px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #333;
+            background: #222;
+        }
+
+        /* Kart Sağ Taraf Bilgiler */
+        .hoca-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .hoca-unvan-etiket { color: #ff00ff; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; margin-bottom: 2px; }
+        .hoca-isim { color: #00f2ff; font-size: 1.1rem; font-weight: bold; margin: 0; text-shadow: 0 0 5px rgba(0, 242, 255, 0.3); }
+        .hoca-bolum { color: #aaa; font-size: 0.75rem; margin-top: 4px; line-height: 1.3; }
+        .mail-text { color: #666; font-size: 0.7rem; margin-top: 6px; word-break: break-all; }
+
+        .section-title { text-align: center; color: #ff00ff; font-size: 0.9rem; letter-spacing: 4px; margin: 40px 0 20px; text-transform: uppercase; font-weight: bold; text-shadow: 0 0 5px #ff00ff; }
+        @media screen and (max-width: 768px) { .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">kaman<span style="color:#00f2ff">ubyo</span>2026</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="egitim.html" class="active">Eğitim</a></li>
+            <li><a href="yemekler.html">Yemekler</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="page-title">Akademik Kadro</h1>
+
+    <div class="search-container">
+        <input type="text" id="kadroSearch" oninput="kadroFiltrele()" placeholder="Akademisyen Ara... (Örn: İsa Bahat)">
+    </div>
+
+    <main>
+        <div class="section-title">// Yüksekokul Müdürü kamanubyo2026</div>
+        <div class="grid-layout" style="margin-bottom: 30px;">
+            <a href="https://unis.ahievran.edu.tr/akademisyen/isabahat" target="_blank" class="hoca-link">
+                <div class="akademik-kart" style="border: 2px solid #ff00ff; box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);">
+                    <img src="isa-bahat.jpg" alt="Doç. Dr. İsa BAHAT" class="hoca-img">
+                    <div class="hoca-info">
+                        <span class="hoca-unvan-etiket">Müdür</span>
+                        <h3 class="hoca-isim" style="color: #ff00ff;">Doç. Dr. İsa BAHAT</h3>
+                        <p class="hoca-bolum">Eğitim Bilimleri Bölümü</p>
+                        <p class="mail-text">isa.bahat@ahievran.edu.tr</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="section-title">// Müdür Yardımcıları kamanubyo2026</div>
+        <div class="grid-layout" style="margin-bottom: 30px;">
+            <a href="https://unis.ahievran.edu.tr/akademisyen/fatih.yaman" target="_blank" class="hoca-link">
+                <div class="akademik-kart">
+                    <img src="fatih-yaman.jpg" alt="Doç. Dr. Fatih YAMAN" class="hoca-img">
+                    <div class="hoca-info">
+                        <span class="hoca-unvan-etiket">Müdür Yrd.</span>
+                        <h3 class="hoca-isim">Doç. Dr. Fatih YAMAN</h3>
+                        <p class="hoca-bolum">Bilişim Sistemleri ve Teknolojileri</p>
+                        <p class="mail-text">fatih.yaman@ahievran.edu.tr</p>
+                    </div>
+                </div>
+            </a>
+            <a href="https://unis.ahievran.edu.tr/akademisyen/yener.ogan" target="_blank" class="hoca-link">
+                <div class="akademik-kart">
+                    <img src="yener-ogan.jpg" alt="Doç. Dr. Yener OĞAN" class="hoca-img">
+                    <div class="hoca-info">
+                        <span class="hoca-unvan-etiket">Müdür Yrd.</span>
+                        <h3 class="hoca-isim">Doç. Dr. Yener OĞAN</h3>
+                        <p class="hoca-bolum">Gastronomi ve Mutfak Sanatları</p>
+                        <p class="mail-text">yener.ogan@ahievran.edu.tr</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="section-title">// Akademik Personel kamanubyo2026</div>
+        <div class="grid-layout">
+            <a href="https://unis.ahievran.edu.tr/akademisyen/isik.metin" target="_blank" class="hoca-link">
+                <div class="akademik-kart">
+                    <img src="metin-isik.jpg" alt="Doç. Dr. Metin IŞIK" class="hoca-img">
+                    <div class="hoca-info">
+                        <span class="hoca-unvan-etiket">Bölüm Başkanı</span>
+                        <h3 class="hoca-isim">Doç. Dr. Metin IŞIK</h3>
+                        <p class="hoca-bolum">Yönetim Bilişim Sistemleri</p>
+                        <p class="mail-text">isik.metin@ahievran.edu.tr</p>
+                    </div>
+                </div>
+            </a>
+            <a href="https://unis.ahievran.edu.tr/akademisyen/ela.ogan" target="_blank" class="hoca-link">
+                <div class="akademik-kart">
+                    <img src="ela-ogan.jpg" alt="Doç. Dr. Ela OĞAN" class="hoca-img">
+                    <div class="hoca-info">
+                        <span class="hoca-unvan-etiket">Doç. Dr.</span>
+                        <h3 class="hoca-isim">Doç. Dr. Ela OĞAN</h3>
+                        <p class="hoca-bolum">Yönetim Bilişim Sistemleri</p>
+                        <p class="mail-text">ela.ogan@ahievran.edu.tr</p>
+                    </div>
+                </div>
+            </a>
+            <a href="https://unis.ahievran.edu.tr/akademisyen/nihal.dulkadiryaman" target="_blank" class="hoca-link">
+                <div class="akademik-kart">
+                    <img src="nihal-yaman.jpg" alt="Dr. Öğr. Üyesi Nihal D. YAMAN" class="hoca-img">
+                    <div class="hoca-info">
+                        <span class="hoca-unvan-etiket">Dr. Öğr. Üyesi</span>
+                        <h3 class="hoca-isim">Dr. Öğr. Üyesi Nihal D. YAMAN</h3>
+                        <p class="hoca-bolum">Yönetim Bilişim Sistemleri</p>
+                        <p class="mail-text">nihal.dulkadiryaman@ahievran.edu.tr</p>
+                    </div>
+                </div>
+            </a>
+            <a href="https://unis.ahievran.edu.tr/akademisyen/kcburcak" target="_blank" class="hoca-link">
+                <div class="akademik-kart">
+                    <img src="kadir-burcak.jpg" alt="Dr. Öğr. Üyesi Kadir Can BURÇAK" class="hoca-img">
+                    <div class="hoca-info">
+                        <span class="hoca-unvan-etiket">Dr. Öğr. Üyesi</span>
+                        <h3 class="hoca-isim">Dr. Öğr. Üyesi Kadir Can BURÇAK</h3>
+                        <p class="hoca-bolum">Bilişim Sistemleri ve Tek.</p>
+                        <p class="mail-text">kcburcak@ahievran.edu.tr</p>
+                    </div>
+                </div>
+            </a>
+            <a href="https://unis.ahievran.edu.tr/akademisyen/irfan.ayhan" target="_blank" class="hoca-link">
+                <div class="akademik-kart">
+                    <img src="irfan-ayhan.jpg" alt="Dr. Öğr. Üyesi İrfan AYHAN" class="hoca-img">
+                    <div class="hoca-info">
+                        <span class="hoca-unvan-etiket">Dr. Öğr. Üyesi</span>
+                        <h3 class="hoca-isim">Dr. Öğr. Üyesi İrfan AYHAN</h3>
+                        <p class="hoca-bolum">Yönetim Bilişim Sistemleri</p>
+                        <p class="mail-text">irfan.ayhan@ahievran.edu.tr</p>
+                    </div>
+                </div>
+            </a>
+            <a href="https://unis.ahievran.edu.tr/akademisyen/ahmet.bulbul" target="_blank" class="hoca-link">
+                <div class="akademik-kart">
+                    <img src="ahmet-bulbul.jpg" alt="Dr. Öğr. Üyesi Ahmet Emin BÜLBÜL" class="hoca-img">
+                    <div class="hoca-info">
+                        <span class="hoca-unvan-etiket">Dr. Öğr. Üyesi</span>
+                        <h3 class="hoca-isim">Dr. Öğr. Üyesi Ahmet Emin BÜLBÜL</h3>
+                        <p class="hoca-bolum">Yeni Medya ve İletişim</p>
+                        <p class="mail-text">ahmet.bulbul@ahievran.edu.tr</p>
+                    </div>
+                </div>
+            </a>
+            <a href="https://unis.ahievran.edu.tr/akademisyen/muzaffer.yilmaz" target="_blank" class="hoca-link">
+                <div class="akademik-kart">
+                    <img src="musab-yilmaz.jpg" alt="Dr. Öğr. Üyesi M. Musab YILMAZ" class="hoca-img">
+                    <div class="hoca-info">
+                        <span class="hoca-unvan-etiket">Dr. Öğr. Üyesi</span>
+                        <h3 class="hoca-isim">Dr. Öğr. Üyesi M. Musab YILMAZ</h3>
+                        <p class="hoca-bolum">Yeni Medya ve İletişim</p>
+                        <p class="mail-text">muzaffer.yilmaz@ahievran.edu.tr</p>
+                    </div>
+                </div>
+            </a>
+            <a href="https://unis.ahievran.edu.tr/akademisyen/gizembeydogan" target="_blank" class="hoca-link">
+                <div class="akademik-kart">
+                    <img src="gizem-beydogan.jpg" alt="Dr. Öğr. Üyesi Gizem Ş. BEYDOĞAN" class="hoca-img">
+                    <div class="hoca-info">
+                        <span class="hoca-unvan-etiket">Dr. Öğr. Üyesi</span>
+                        <h3 class="hoca-isim">Dr. Öğr. Üyesi Gizem Ş. BEYDOĞAN</h3>
+                        <p class="hoca-bolum">Gastronomi ve Mutfak San.</p>
+                        <p class="mail-text">gizembeydogan@ahievran.edu.tr</p>
+                    </div>
+                </div>
+            </a>
+            <a href="https://unis.ahievran.edu.tr/akademisyen/ecem.akay" target="_blank" class="hoca-link">
+                <div class="akademik-kart">
+                    <img src="ecem-akay.jpg" alt="Öğr. Gör. Ecem AKAY" class="hoca-img">
+                    <div class="hoca-info">
+                        <span class="hoca-unvan-etiket">Öğr. Gör.</span>
+                        <h3 class="hoca-isim">Öğr. Gör. Ecem AKAY</h3>
+                        <p class="hoca-bolum">Gastronomi ve Mutfak San.</p>
+                        <p class="mail-text">ecem.akay@ahievran.edu.tr</p>
+                    </div>
+                </div>
+            </a>
+            <a href="https://unis.ahievran.edu.tr/akademisyen/hatice.cicek" target="_blank" class="hoca-link">
+                <div class="akademik-kart">
+                    <img src="hatice-cicek.jpg" alt="Arş. Gör. Hatice Kübra ÇİÇEK" class="hoca-img">
+                    <div class="hoca-info">
+                        <span class="hoca-unvan-etiket">Arş. Gör.</span>
+                        <h3 class="hoca-isim">Arş. Gör. Hatice Kübra ÇİÇEK</h3>
+                        <p class="hoca-bolum">Yönetim Bilişim Sistemleri</p>
+                        <p class="mail-text">hatice.cicek@ahievran.edu.tr</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer style="padding: 30px 0; text-align: center; background: rgba(0,0,0,0.9); border-top: 1px solid #222;">
+        <p style="color: #666; font-size: 0.85rem; margin: 0;">© 2026 KamanUBYO Projesi | Merve OĞUR kamanubyo2026</p>
+    </footer>
+
+    <script>
+        // Canlı Harf Duyarlı Arama Motoru
+        function kadroFiltrele() {
+            let input = document.getElementById('kadroSearch').value.toLowerCase();
+            let hocaLinkleri = document.querySelectorAll('.hoca-link');
+
+            hocaLinkleri.forEach(bağlantı => {
+                let metin = bağlantı.innerText.toLowerCase();
+                bağlantı.style.display = metin.includes(input) ? "" : "none";
+            });
+        }
+
+        // Ana sayfadan gelen aramayı alma
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const aramaTerimi = urlParams.get('q');
+            if (aramaTerimi) {
+                const input = document.getElementById('kadroSearch');
+                if(input) input.value = aramaTerimi;
+                kadroFiltrele();
+            }
+        };
+    </script>
+</body>
+</html>

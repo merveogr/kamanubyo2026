@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="geo.region" content="TR-40">
+    <meta name="geo.placename" content="Kaman">
+    <meta name="geo.position" content="39.3575;33.7239">
+    <meta name="ICBM" content="39.3575, 33.7239">
+    <title>KamanUBYO 2026 | Yemekler</title>
+    <style>
+        /* Genel Ayarlar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #050505;
+            color: white;
+        }
+
+        /* Navbar Tasarımı */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            padding: 0 30px;
+            height: 80px;
+            color: white;
+            position: relative;
+            border-bottom: 3px solid #ff00ff; 
+            box-shadow: 0 4px 15px rgba(255, 0, 255, 0.4);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li a {
+            color: #eee;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            display: block;
+        }
+
+        .nav-links li a:hover {
+            color: #00f2ff;
+            text-shadow: 0 0 8px #00f2ff;
+        }
+
+        .nav-links li a.active {
+            color: #00f2ff;
+            background: rgba(0, 242, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.6);
+            text-shadow: 0 0 10px #00f2ff;
+            border-bottom: 2px solid #00f2ff;
+        }
+
+        /* Arama Kutusu Stili */
+        input[type="text"] {
+            width: 100%;
+            padding: 15px 25px;
+            border-radius: 30px;
+            border: 1px solid #333;
+            background: #000;
+            color: white;
+            outline: none;
+            transition: 0.4s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #00f2ff;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+        }
+
+        /* --- MEKAN KARTLARI STİLLERİ --- */
+        .mekan-kart {
+            background: #111;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #222;
+            border-bottom: 4px solid #ff00ff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .mekan-kart:hover {
+            transform: translateY(-10px);
+            border-color: #00f2ff;
+            box-shadow: 0 15px 30px rgba(0, 242, 255, 0.2);
+        }
+
+        .ara-buton {
+            display: inline-block;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .ara-buton:hover {
+            filter: brightness(1.2);
+            box-shadow: 0 0 15px rgba(37, 117, 252, 0.5);
+        }
+
+        /* Mobil Ayarlar */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background-color: #ff00ff;
+            margin: 5px;
+            box-shadow: 0 0 8px #ff00ff;
+            transition: 0.4s;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #000;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                padding: 20px 0;
+                border-bottom: 2px solid #00f2ff;
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">kaman<span style="color:#00f2ff">ubyo</span>2026</div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
+        <ul class="nav-links" id="nav-list">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="egitim.html">Eğitim</a></li>
+            <li><a href="yemekler.html" class="active">Yemekler</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+    </nav>
+
+    <main style="padding: 40px 20px; color: white; max-width: 1200px; margin: auto;">
+        
+        <section style="text-align: center; margin-bottom: 60px;">
+            <h1 style="font-size: 3rem; text-shadow: 0 0 15px #00f2ff; color: #00f2ff; margin-bottom: 15px;">KAMAN LEZZET DURAKLARI</h1>
+            <p style="color: #888; font-size: 1.1rem; max-width: 700px; margin: auto;">kamanubyo2026 projesi kapsamında, Kaman'ın bereketli topraklarından sofranıza uzanan en özel tatları derledik.</p>
+        </section>
+
+        <div style="max-width: 600px; margin: 0 auto 50px; position: relative;">
+            <input type="text" id="kamanSearch" oninput="herSeyiFiltrele()" placeholder="Mekan veya lezzet arayın...">
+        </div>
+
+        <section style="background: rgba(255, 0, 255, 0.05); border: 2px solid #ff00ff; border-radius: 20px; padding: 40px; margin-bottom: 50px; box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);">
+            <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h2 style="color: #ff00ff; font-size: 2rem; margin-bottom: 20px;">Dünyanın En İyisi: Kaman Cevizi</h2>
+                    <p style="line-height: 1.8; color: #ddd; font-size: 1.1rem;">
+                        Kaman denilince akla gelen ilk marka şüphesiz <strong>Kaman Cevizi</strong>'dir. İnce kabuğu, yüksek yağ oranı ve eşsiz aromasıyla tescilli bir dunya markası olan bu lezzet, <strong>kamanubyo2026</strong> rehberimizin en değerli parçasıdır.
+                    </p>
+                </div>
+                <img src="Kaman-Cevizi-1.jpg" alt="Kaman Cevizi" style="width: 300px; height: 200px; object-fit: cover; border-radius: 15px; border: 1px solid #ff00ff;">
+            </div>
+        </section>
+
+        <h2 style="color: #00f2ff; text-align: center; margin-bottom: 40px; text-shadow: 0 0 15px #00f2ff; font-size: 2.2rem;"># KAMAN'DA NE YENİR?</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            
+            <div class="mekan-kart">
+                <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.4rem;">🍢 Merkez Aspava</h3>
+                <p style="color: #888; font-size: 0.95rem; line-height: 1.6;">
+                    Geleneksel kebap lezzetlerini Kaman'ın kalbinde sunan, acık hava bolumuyle misafirlerine ferah bir yemek deneyimi yaşatan klasik bir durak.
+                </p>
+                <a href="tel:+905010051940" class="ara-buton">+90 (501) 005 19 40</a>
+            </div>
+
+            <div class="mekan-kart">
+                <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.4rem;">🌯 Biberzade Çiğköfte</h3>
+                <p style="color: #888; font-size: 0.95rem; line-height: 1.6;">Kaman'da gece acıkmalarının bir numaralı çozumu. Taze ve hızlı paket servis avantajıyla.</p>
+                <a href="tel:+903867121010" class="ara-buton">+90 (386) 712 10 10</a>
+            </div>
+
+            <div class="mekan-kart">
+                <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.4rem;">🌮 Devran Döner</h3>
+                <p style="color: #888; font-size: 0.95rem; line-height: 1.6;">Çarşı merkezinde, hızlı oğle yemeği ve doner çeşitleri. Kaman merkezde donerin doğru adresi.</p>
+                <a href="tel:+905454853396" class="ara-buton">+90 (545) 485 33 96</a>
+            </div>
+
+            <div class="mekan-kart">
+                <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.4rem;">🍔 Kral Lezzet</h3>
+                <p style="color: #888; font-size: 0.95rem; line-height: 1.6;">Kumru, Ayvalık tostu ve fast food severlerin durağı. Zengin menu ve doyurucu lezzet.</p>
+                <a href="tel:+905386251980" class="ara-buton">+90 (538) 625 19 80</a>
+            </div>
+
+            <div class="mekan-kart">
+                <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.4rem;">🌯 Adıyaman Çiğköfte</h3>
+                <p style="color: #888; font-size: 0.95rem; line-height: 1.6;">
+                    Ataturk Caddesi uzerinde, çiğkofte lezzetini tam kıvamında sunan, hızlı ve pratik lezzet duraklarından biri.
+                </p>
+                <a href="tel:+903867122323" class="ara-buton">+90 (386) 712 23 23</a>
+            </div>
+
+            <div class="mekan-kart">
+                <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.4rem;">👨‍🍳 Samet Usta</h3>
+                <p style="color: #888; font-size: 0.95rem; line-height: 1.6;">
+                    İçeride servis, arabaya servis ve temassız teslimat seçenekleriyle Kaman'da muşteri memnuniyetini on planda tutan modern bir restoran.
+                </p>
+                <a href="tel:+905466876565" class="ara-buton">+90 (546) 687 65 65</a>
+            </div>
+
+            <div class="mekan-kart">
+                <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.4rem;">☕ Almina Cafe</h3>
+                <p style="color: #888; font-size: 0.95rem; line-height: 1.6;">
+                    Belediye binası 6. katta eşsiz Kaman manzarası eşliğinde çayınızı yudumlayabileceğiniz, ailenizle vakit geçirebileceğiniz nezih bir mekan.
+                </p>
+                <div style="color: #00f2ff; font-size: 0.85rem; margin-bottom: 10px; margin-top: 10px;">
+                    📍 Atatürk Cad. Belediye Binası Kat:6
+                </div>
+                <a href="tel:+903865021071" class="ara-buton">+90 (386) 502 10 71</a>
+            </div>
+
+            <div class="mekan-kart">
+                <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.4rem;">🌳 Park Kafe</h3>
+                <p style="color: #888; font-size: 0.95rem; line-height: 1.6;">
+                    Kaman merkezde, acık havada dinlenmek ve çay bahçesi atmosferinde vakit geçirmek isteyenlerin ortak noktası.
+                </p>
+                <div style="color: #00f2ff; font-size: 0.85rem; margin-bottom: 10px; margin-top: 10px;">
+                    📍 Gaffar, Atatürk Cd. No:17
+                </div>
+                <a href="tel:+905438734706" class="ara-buton">+90 (543) 873 47 06</a>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px;">
+            <div class="mekan-kart" style="border-bottom: 4px solid #00f2ff;">
+                <h3 style="color: #00f2ff; margin-bottom: 10px;">Kırşehir Besmeci</h3>
+                <p style="color: #aaa; font-size: 0.9rem;">Kaman mutfağının vazgeçilmezi sac uzerinde pişen eşsiz bir tat.</p>
+            </div>
+            <div class="mekan-kart" style="border-bottom: 4px solid #00f2ff;">
+                <h3 style="color: #00f2ff; margin-bottom: 10px;">Çullama</h3>
+                <p style="color: #aaa; font-size: 0.9rem;">Kaman'ın en eski ve ozel duğun yemeklerinden biri.</p>
+            </div>
+        </div>
+
+    </main>
+    
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        mobileMenu.addEventListener('click', () => { navList.classList.toggle('active'); });
+
+        // Filtreleme Fonksiyonu (.mekan-kart olarak düzeltildi)
+        function herSeyiFiltrele() {
+            let input = document.getElementById('kamanSearch').value.toLowerCase();
+            let kartlar = document.querySelectorAll('.mekan-kart');
+
+            kartlar.forEach(kart => {
+                let metin = kart.innerText.toLowerCase();
+                kart.style.display = metin.includes(input) ? "" : "none";
+            });
+        }
+
+        // URL'den gelen (Ana sayfadan) parametreyi yakalama
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const aramaTerimi = urlParams.get('q');
+            
+            if (aramaTerimi) {
+                const input = document.getElementById('kamanSearch');
+                if(input) input.value = aramaTerimi;
+                herSeyiFiltrele();
+            }
+        };
+    </script>
+    
+</body>
+</html>

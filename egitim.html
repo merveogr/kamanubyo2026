@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="geo.region" content="TR-40">
+    <meta name="geo.placename" content="Kaman">
+    <title>KamanUBYO 2026 | Akademik Eğitim</title>
+    <style>
+        /* Genel Ayarlar */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #050505; color: white; }
+
+        /* Navbar Tasarımı */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            padding: 0 30px;
+            height: 80px;
+            position: relative;
+            border-bottom: 3px solid #ff00ff; 
+            box-shadow: 0 4px 15px rgba(255, 0, 255, 0.4);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+            letter-spacing: 2px;
+        }
+
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li a {
+            color: #eee;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: 0.4s;
+        }
+        .nav-links li a:hover, .nav-links li a.active {
+            color: #00f2ff;
+            text-shadow: 0 0 8px #00f2ff;
+        }
+
+        /* Mobil Menü */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
+        .menu-toggle span { width: 30px; height: 3px; background-color: #ff00ff; margin: 5px; box-shadow: 0 0 8px #ff00ff; }
+
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #000;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                padding: 20px 0;
+                border-bottom: 2px solid #00f2ff;
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">kaman<span style="color:#00f2ff">ubyo</span>2026</div>
+        <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
+        <ul class="nav-links" id="nav-list">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="egitim.html" class="active">Eğitim</a></li>
+            <li><a href="yemekler.html">Yemekler</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+    </nav>
+
+    <main style="padding: 40px 20px; max-width: 1200px; margin: auto;">
+    
+        <section style="text-align: center; margin-bottom: 60px;">
+            <h1 style="font-size: 3rem; text-shadow: 0 0 15px #00f2ff; color: #00f2ff; margin-bottom: 15px;">AKADEMİK EĞİTİM</h1>
+            <p style="color: #888; font-size: 1.1rem; max-width: 800px; margin: auto;">
+                Kırşehir Ahi Evran Üniversitesi bünyesinde yer alan Kaman Uygulamalı Bilimler Yüksekokulu, teorik bilgiyi pratikle birleştirerek geleceğin uzmanlarını yetiştiriyor.
+            </p>
+        </section>
+
+        <div style="background: #111; padding: 40px; border-radius: 20px; border: 1px solid #333; margin-bottom: 50px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: #ff00ff;"></div>
+            <h2 style="color: #ff00ff; margin-bottom: 20px; font-size: 1.8rem;">Yönetim Bilişim Sistemleri (YBS)</h2>
+            <p style="color: #ccc; line-height: 1.8; font-size: 1.1rem;">
+                Okulumuzun amiral gemisi olan YBS bölümü; bilişim teknolojileri ile işletme yönetimini bir araya getirerek mezunlarımıza veri analizi, yazılım geliştirme ogrenimi ve stratejik yönetim alanlarında yetkinlik kazandırır.
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            
+            <div style="background: #111; padding: 25px; border-radius: 15px; border: 1px solid #222; transition: 0.4s;">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">💻</div>
+                <h3 style="color: #00f2ff; margin-bottom: 10px;">Modern Laboratuvarlar</h3>
+                <p style="color: #888; font-size: 0.95rem;">Öğrencilerimizin yazılım ve veri analizi projelerini hayata geçirebileceği yüksek donanımlı bilgisayar laboratuvarları mevcuttur.</p>
+            </div>
+
+            <div style="background: #111; padding: 25px; border-radius: 15px; border: 1px solid #222; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px;">
+                <div style="font-size: 2.5rem;">👨‍🏫</div>
+                <a href="akademik-kadro.html" 
+                   style="display: block; width: 100%; text-align: center; background: transparent; color: #ff00ff; border: 2px solid #ff00ff; padding: 14px; border-radius: 12px; text-decoration: none; font-weight: bold; transition: 0.3s;"
+                   onmouseover="this.style.background='#ff00ff'; this.style.color='#fff';"
+                   onmouseout="this.style.background='transparent'; this.style.color='#ff00ff';">
+                    AKADEMİK KADROYU GÖR ↗
+                </a>
+            </div>
+
+            <div style="background: #111; padding: 25px; border-radius: 15px; border: 1px solid #222; transition: 0.4s;">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🚀</div>
+                <h3 style="color: #00f2ff; margin-bottom: 10px;">Kariyer Fırsatları</h3>
+                <p style="color: #888; font-size: 0.95rem;">Bilişim uzmanı, sistem analisti ve proje yöneticisi gibi kritik pozisyonlar için güçlü bir altyapı sağlanmaktadır.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        mobileMenu.addEventListener('click', () => { navList.classList.toggle('active'); });
+    </script>
+
+</body>
+</html>

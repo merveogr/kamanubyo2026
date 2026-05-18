@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Kaman Uygulamalı Bilimler Yüksekokulu 2026 yılı dijital rehberi ve YBS bölümü tanıtımı. #GeleceğiGeçmişleİnşaEdiyoruz kamanubyo2026">
+    <meta name="keywords" content="kamanubyo2026, Kaman UBYO, Yönetim Bilişim Sistemleri, Kırşehir Ahi Evran Üniversitesi, Kaman rehberi, YBS 2026">
+    <meta name="author" content="Merve Oğur">
+    <meta name="robots" content="index, follow">
+
+    <meta name="geo.region" content="TR-40">
+    <meta name="geo.placename" content="Kaman">
+    <meta name="geo.position" content="39.3575;33.7239">
+    <meta name="ICBM" content="39.3575, 33.7239">
+    
+    <title>KamanUBYO 2026 | Resmi Arama ve Dijital Başarı Rehberi</title>
+    
+    <style>
+        /* Genel Ayarlar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Tasarımı */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            padding: 0 30px;
+            height: 80px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            border-bottom: 3px solid #ff00ff; 
+            box-shadow: 0 4px 15px rgba(255, 0, 255, 0.4);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+            letter-spacing: 2px;
+            text-transform: lowercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: #eee;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+
+        .nav-links li a:hover, .nav-links li a.active {
+            color: #00f2ff;
+            text-shadow: 0 0 8px #00f2ff;
+        }
+
+        /* Hamburger Menü (Mobil) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background-color: #ff00ff;
+            margin: 5px;
+            box-shadow: 0 0 8px #ff00ff;
+            transition: 0.4s;
+        }
+
+        /* Ana İçerik */
+        main {
+            padding: 140px 20px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Arama Kutusu */
+        input[type="text"] {
+            width: 100%;
+            padding: 18px 25px;
+            border-radius: 50px;
+            border: 1px solid #333;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.4s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #00f2ff;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+        }
+
+        /* Kartlar */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: #000;
+            border: 1px solid #333;
+            padding: 40px;
+            transition: 0.4s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover { transform: translateY(-10px); border-color: #00f2ff; }
+        .card.pink { border-bottom: 4px solid #ff00ff; }
+        .card.blue { border-bottom: 4px solid #00f2ff; }
+
+        /* SEO SEO İÇERİK ALANI STİLİ */
+        .seo-content-section {
+            background: #111;
+            border: 1px solid #222;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 60px;
+            border-left: 5px solid #ff00ff;
+        }
+
+        .seo-content-section h2 {
+            color: #00f2ff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+        }
+
+        .seo-content-section p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* CANLI İSTATİSTİK PANELİ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .stat-box {
+            background: #000;
+            border: 1px solid #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255,0,255,0.1);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+            margin-bottom: 5px;
+        }
+
+        /* FAQ (SSS) ACCORDION STİLİ */
+        .faq-section {
+            margin-top: 60px;
+        }
+        .faq-item {
+            background: #111;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
+        .faq-question {
+            padding: 20px;
+            color: #00f2ff;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #aaa;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #111;
+        }
+
+        /* Mobil Görünüm */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #000;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                padding: 20px 0;
+                border-bottom: 2px solid #00f2ff;
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: flex; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">kaman<span style="color:#00f2ff">ubyo</span>2026</div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
+
+        <ul class="nav-links" id="nav-list">
+            <li><a href="index.html" class="active">Ana Sayfa</a></li>
+            <li><a href="egitim.html">Eğitim</a></li>
+            <li><a href="yemekler.html">Yemekler</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section style="text-align: center;">
+            <h1 style="font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; line-height: 1; margin-bottom: 20px; text-transform: uppercase;">
+                kaman<span style="color: #ff00ff; text-shadow: 0 0 20px #ff00ff;">ubyo</span><br>
+                <span style="color: #00f2ff; text-shadow: 0 0 20px #00f2ff;">2026</span>
+            </h1>
+            <p style="color: #888; font-style: italic; margin-bottom: 40px;">#GeleceğiGeçmişleİnşaEdiyoruz kamanubyo2026</p>
+
+            <div style="max-width: 600px; margin: auto; position: relative;">
+                <input type="text" id="kamanSearch" placeholder="Hoca, yemek veya mekan arayın...">
+                <button onclick="akilliArama()" style="position: absolute; right: 8px; top: 8px; bottom: 8px; background: #ff00ff; border: none; padding: 0 25px; border-radius: 40px; color: white; font-weight: bold; cursor: pointer;">ARA</button>
+            </div>
+        </section>
+
+        <section class="card-grid">
+            <div class="card pink" onclick="location.href='egitim.html'">
+                <span style="color: #ff00ff; font-size: 0.8rem; font-weight: bold;">01 // MİRAS</span>
+                <h2 style="margin: 15px 0;">EĞİTİM VE KADRO</h2>
+                <p style="color: #777;">YBS bölümümüz, ders içerikleri ve 12 kişilik dev akademik kadromuz.</p>
+            </div>
+            <div class="card blue" onclick="location.href='yemekler.html'">
+                <span style="color: #00f2ff; font-size: 0.8rem; font-weight: bold;">02 // LEZZET</span>
+                <h2 style="margin: 15px 0;">YEMEKLER VE MEKANLAR</h2>
+                <p style="color: #777;">Tescilli Kaman cevizi, yerel lezzet durakları ve öğrenci mekanları.</p>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-box">
+                <span class="stat-number">2026</span>
+                <p style="color: #aaa; font-size: 0.85rem;">Hedef Yıl / Vizyon</p>
+            </div>
+            <div class="stat-box" style="border-color: #00f2ff;">
+                <span class="stat-number" style="color: #00f2ff; text-shadow: 0 0 10px #00f2ff;">12</span>
+                <p style="color: #aaa; font-size: 0.85rem;">Aktif Akademisyen</p>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">1</span>
+                <p style="color: #aaa; font-size: 0.85rem;">SEO Sıralama Hedefi</p>
+            </div>
+        </section>
+
+        <section class="seo-content-section">
+            <h2>Kaman Uygulamalı Bilimler Yüksekokulu Dijital Başarı Portalı</h2>
+            <p>
+                Kırşehir Ahi Evran Üniversitesi'ne bağlı olan <strong>Kaman Uygulamalı Bilimler Yüksekokulu</strong>, çağın en dinamik ve geleceği parlak disiplinlerinden biri olan <strong>Yönetim Bilişim Sistemleri (YBS)</strong> bölümü ile fark yaratmaktadır. Sitemiz, <strong>kamanubyo2026</strong> vizyonu doğrultusunda, Kaman yerel kültürünü teknolojik altyapıyla entegre ederek dijital dünyada zirveye taşımayı hedeflemektedir.
+            </p>
+            <p>
+                Akademik eğitim süreçlerinden Kaman'ın tescilli gurme lezzetlerine, modern laboratuvar imkanlarından öğrencilerin sosyal yaşam rehberine kadar ihtiyaç duyulan her türlü bilgiye bu platform üzerinden anlık olarak erişebilirsiniz. İşletme ve bilişimi harmanlayan yenilikçi yapımızla geleceği bugünden inşa ediyoruz.
+            </p>
+        </section>
+
+        <section class="faq-section">
+            <h2 style="color: #ff00ff; text-shadow: 0 0 10px rgba(255,0,255,0.2); margin-bottom: 25px; text-align: center;">Sıkça Sorulan Sorular</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Kaman UBYO bünyesinde hangi bölümler yer almaktadır? <span>+</span></div>
+                <div class="faq-answer">Kaman Uygulamalı Bilimler Yüksekokulu'nun en gözde ve aktif bölümü Yönetim Bilişim Sistemleri (YBS) bölümüdür. Bölüm, bilişim teknolojileri ve modern işletme yönetimini bir araya getirerek nitelikli uzmanlar yetiştirir.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">kamanubyo2026 platformunun amacı nedir? <span>+</span></div>
+                <div class="faq-answer">Bu platform, 2026 arama motoru optimizasyonu standartlarına tam uyumlu olarak geliştirilmiş, Kaman'ın akademik ve gastronomik değerlerini dijital ekosistemde en üst sıraya çıkarmayı hedefleyen bir başarı projesidir.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Kaman yerel mutfağının en ünlü lezzeti hangisidir? <span>+</span></div>
+                <div class="faq-answer">Kaman'ın dünya çapında tescillenmiş en ünlü lezzeti ince kabuğu ve üstün aromasıyla Kaman Cevizi'dir. Ayrıca Kırşehir Besmeci ve Çullama yemeği de bölgenin öne çıkan diğer gastronomik miraslarındandır.</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p style="color: #444; font-size: 0.8rem; letter-spacing: 3px;">DESIGNED FOR KAMANUBYO2026 // MERVE OĞUR</p>
+    </footer>
+
+    <script>
+        // Mobil menü açma/kapatma
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        mobileMenu.addEventListener('click', () => { navList.classList.toggle('active'); });
+
+        // Akıllı Yönlendirme Arama Fonksiyonu
+        function akilliArama() {
+            let sorgu = document.getElementById('kamanSearch').value.toLowerCase();
+            if(!sorgu) return;
+
+            const yemekKelimeleri = ['aspava', 'döner', 'çiğköfte', 'kebap', 'yemek', 'lezzet', 'kafe', 'cafe', 'restoran', 'cevizi', 'besmeci'];
+            let yemekMi = yemekKelimeleri.some(kelime => sorgu.includes(kelime));
+
+            if (yemekMi) {
+                window.location.href = "yemekler.html?q=" + encodeURIComponent(sorgu);
+            } else {
+                window.location.href = "akademik-kadro.html?q=" + encodeURIComponent(sorgu);
+            }
+        }
+
+        // Enter tuşu dinleyicisi
+        document.getElementById("kamanSearch").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") akilliArama();
+        });
+
+        // FAQ Açma/Kapatma Sistemi
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const span = element.querySelector('span');
+            if (answer.style.maxHeight && answer.style.maxHeight !== "0px") {
+                answer.style.maxHeight = "0px";
+                answer.style.paddingTop = "0px";
+                answer.style.paddingBottom = "0px";
+                span.innerText = "+";
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + 40 + "px";
+                answer.style.paddingTop = "15px";
+                answer.style.paddingBottom = "15px";
+                span.innerText = "-";
+            }
+        }
+    </script>
+</body>
+</html>
