@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kamanubyo2026.fun/sitemap.xml
+Sitemap: https://kamanubyo2026.fun/siteharitasi.xml
